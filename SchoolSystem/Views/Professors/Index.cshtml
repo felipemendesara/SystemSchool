@@ -1,0 +1,55 @@
+﻿@model IEnumerable<SchoolSystem.Models.Professor>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">CADASTRO DE PROFESSORES</h6>
+    </div>
+    <div class="card-body">
+        <form action="@Url.Action("Create", "Professors")" method="post" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            @Html.AntiForgeryToken()
+            <div class="input-group">
+
+                <input class="form-control" name="NomeProfessor" id="NomeProfessor" type="text" placeholder="Digite o nome...">
+                &nbsp;
+                &nbsp;
+                <input style="color:white" class="btn btn-success btn-icon-split" type="submit" value=" INSERIR PROFESSOR ">
+
+            </div>
+        </form>
+        <BR /><BR />
+        <div class="table-responsive">
+
+            <!-- Topbar Search -->
+
+
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th># CÓDIGO</th>
+                        <th>PROFESSOR</th>
+
+
+                    </tr>
+                </thead>
+                <tfoot>
+
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            <td>@item.IdProfessor</td>
+                            <td>@item.NomeProfessor</td>
+
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
